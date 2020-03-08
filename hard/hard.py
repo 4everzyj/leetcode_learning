@@ -36,7 +36,7 @@ class Solution(object):
         ordered_list[-1].next = None
         return ordered_list[0]
 
-    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:  # q25
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:  # q25 uncompleted overtime
         def nth_listnode(head_node, n):
             curr_node = head_node
             for i in range(n):

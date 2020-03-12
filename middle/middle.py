@@ -38,7 +38,21 @@ class Solution(object):
             last_node.next = ListNode(1)
         return new_head
 
+    def lengthOfLongestSubstring(self, s: str) -> int:  # q3 20200313
+        if len(s) == 0:
+            return 0
+        max_len = 1
+        for start_i in range(len(s)):
+            for end_i in range(start_i + 1, len(s)):
+                if s[end_i] not in s[start_i: end_i]:
+                    if end_i - start_i + 1 > max_len:
+                        max_len = end_i - start_i + 1
+                else:
+                    break
+        return max_len
+
 
 if __name__ == '__main__':
     solution = Solution()
-    res = solution.addTwoNumbers(gen_listnode([1]), gen_listnode([9, 9]))
+    # res = solution.addTwoNumbers(gen_listnode([1]), gen_listnode([9, 9]))
+    print(solution.lengthOfLongestSubstring('pwwkew'))

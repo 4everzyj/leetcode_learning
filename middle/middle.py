@@ -51,8 +51,18 @@ class Solution(object):
                     break
         return max_len
 
+    def longestPalindrome(self, s: str) -> str:  # q5 20200316
+        if s == '':
+            return ''
+        for i in range(len(s)):
+            for j in range(i + 1):
+                rev_s = s[j: j + len(s) - i]
+                if rev_s == rev_s[::-1]:
+                    return rev_s
+
 
 if __name__ == '__main__':
     solution = Solution()
     # res = solution.addTwoNumbers(gen_listnode([1]), gen_listnode([9, 9]))
-    print(solution.lengthOfLongestSubstring('pwwkew'))
+    # print(solution.lengthOfLongestSubstring('pwwkew'))
+    print(solution.longestPalindrome('babad'))

@@ -60,9 +60,36 @@ class Solution(object):
                 if rev_s == rev_s[::-1]:
                     return rev_s
 
+    def convert(self, s: str, numRows: int) -> str:  # q6 20200317
+        if s == '':
+            return ''
+        res_list = []
+        for i in range(numRows):
+            res_list.append([])
+        j = 0
+        while j < len(s):
+            for i in range(numRows):
+                res_list[i].append(s[j])
+                j += 1
+                if j == len(s):
+                    break
+            if j == len(s):
+                break
+            for i in range(numRows - 2, 0, -1):
+                res_list[i].append(s[j])
+                j += 1
+                if j == len(s):
+                    break
+        res = ''
+        for i in range(numRows):
+            for letter in res_list[i]:
+                res += letter
+        return res
+
 
 if __name__ == '__main__':
     solution = Solution()
     # res = solution.addTwoNumbers(gen_listnode([1]), gen_listnode([9, 9]))
     # print(solution.lengthOfLongestSubstring('pwwkew'))
-    print(solution.longestPalindrome('babad'))
+    # print(solution.longestPalindrome('babad'))
+    print(solution.convert('ABCD', 3))
